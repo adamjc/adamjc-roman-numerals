@@ -2,18 +2,39 @@ var Roman = (function () {
     var Roman = {};
 
     var nums = {
-        'I': 1,
-        'V': 5,
-        'X': 10,
-        'L': 50,
-        'C': 100,
+        'M': 1000,
+        'CM': 900,
         'D': 500,
-        'M': 1000
+        'CD': 400,
+        'C': 100,
+        'XC': 90,
+        'L': 50,
+        'XL': 40,
+        'X': 10,
+        'IX': 9,
+        'V': 5,
+        'IV': 4,
+        'I': 1
     }
 
     /* Public methods */
     Roman.generate = function (arabicNumeral) {
+        var romanNumeral = '';
 
+        var i = 0;
+
+        var romanNumsArray = Object.keys(nums);
+
+        while (arabicNumeral > 0) {
+            while (this.parse(romanNumsArray[i]) > arabicNumeral) {
+                i++;
+            }
+
+            arabicNumeral -= this.parse(romanNumsArray[i]);
+            romanNumeral += romanNumsArray[i];
+        }
+
+        return romanNumeral;
     }
 
     Roman.parse = function (romanNumeral) {
@@ -28,7 +49,7 @@ var Roman = (function () {
             var nextNumber = nums[romanArray[i + 1]];
 
             // If the current character is less than the next character, it is
-            // a two parter, so get the next character, decrement the first
+            // a two-parter, so get the next character, decrement the first
             // from the second, and add the result to arabicNumeral.
             if (number < nextNumber) {
                 i += 1;
