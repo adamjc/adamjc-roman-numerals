@@ -19,18 +19,22 @@ var Roman = (function () {
 
     /* Public methods */
     Roman.generate = function (arabicNumeral) {
-        var romanNumeral = '';
+        if (arabicNumeral < 1 ||
+            arabicNumeral > 3999) {
+                return 'Number must be greater than 0 and less than 3999';
+            }
 
-        var i = 0;
+        var romanNumeral = '';
 
         var romanNumsArray = Object.keys(nums);
 
         while (arabicNumeral > 0) {
-            while (this.parse(romanNumsArray[i]) > arabicNumeral) {
+            var i = 0;
+            while (nums[romanNumsArray[i]] > arabicNumeral) {
                 i++;
             }
 
-            arabicNumeral -= this.parse(romanNumsArray[i]);
+            arabicNumeral -= nums[romanNumsArray[i]];
             romanNumeral += romanNumsArray[i];
         }
 
