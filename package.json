@@ -1,0 +1,7 @@
+{
+  "name": "adamjc-roman-numerals",
+  "author": "Adam Cook <adamjc86@gmail.com",
+  "devDependencies": {
+    "mocha": "^2.1.0"
+  }
+}
