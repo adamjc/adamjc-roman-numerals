@@ -10,6 +10,10 @@ app.use(function(req, res, next) {
     next();
 });
 
+app.get('/', function (req, res) {
+    res.sendFile(__dirname + '/index.html');
+});;
+
 app.get('/generate/:numeral', function (req, res) {
     var romanNumeral = Roman.generate(parseInt(req.params.numeral));
 
