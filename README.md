@@ -11,7 +11,7 @@ To use as a REST service either:
   node src/app.js
 ```
 
-you can then either send ajax requests to localhost:80, or directly in a browser use the API, e.g.:
+you can then either send ajax requests to localhost:1337, or directly in a browser use the API, e.g.:
 `localhost:1337/generate/3999`
 
 ***alternatively***, use my server @ `http://adamjc.com`, e.g.
