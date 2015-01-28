@@ -1,5 +1,5 @@
 var assert = require('assert');
-var Roman = require('../roman-numerals.js')
+var Roman = require('../src/roman-numerals.js')
 
 describe('roman-numerals.js', function () {
     describe('#generate(value)', function () {

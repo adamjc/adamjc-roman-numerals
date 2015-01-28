@@ -22,6 +22,8 @@ module.exports = (function () {
     /**
      *  generate
      *
+     *  generates a Roman numeral from an Arabic numeral.
+     *
      *  @param {number}
      */
     Roman.generate = function (arabicNumeral) {
@@ -36,8 +38,14 @@ module.exports = (function () {
 
         var romanNumsArray = Object.keys(nums);
 
+        /* Repeated subtraction, while arabicNumber > 0 there are still
+         * Roman numerals to generate, so keep going! This generates the
+         * Roman numerals from left -> right.
+         */
         while (arabicNumeral > 0) {
             var i = 0;
+
+            // Find the biggest Roman numeral that is smaller than arabicNumeral.
             while (nums[romanNumsArray[i]] > arabicNumeral) {
                 i++;
             }
@@ -51,6 +59,8 @@ module.exports = (function () {
 
     /**
      *  parse
+     *
+     *  generates an Arabic numeral from a Roman numeral.
      *
      *  @param {string}
      */
@@ -73,9 +83,10 @@ module.exports = (function () {
 
             var nextNumber = nums[romanArray[i + 1]];
 
-            // If the current character is less than the next character, it is
-            // a two-parter, so get the next character, decrement the first
-            // from the second, and add the result to arabicNumeral.
+            /* If the current character is less than the next character, it is
+             * a two-parter, so get the next character, decrement the first
+             * from the second, and add the result to arabicNumeral.
+             */
             if (number < nextNumber) {
                 i += 1;
                 number = nextNumber - number;
