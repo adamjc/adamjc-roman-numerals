@@ -14,7 +14,7 @@ To use as a REST service either:
 you can then either send ajax requests to localhost:1337, or directly in a browser use the API, e.g.:
 `localhost:1337/generate/3999`
 
-***alternatively***, use my server @ `http://adamjc.com`, e.g.
+***alternatively***, use my server @ `http://adamjc.com/demos/roman-numerals`, e.g.
 
 `http://adamjc.com/demos/roman-numerals/generate/2015`
 `http://adamjc.com/demos/roman-numerals/parse/MMXV`
